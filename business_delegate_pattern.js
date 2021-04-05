@@ -1,8 +1,8 @@
-class EBJService {
+class EJBService {
 	constructor() {}
 	
 	doProcessing() {
-		console.log('Processing task by invoking EJB Service');
+		console.log('Processing task by invoking EJB service');
 	}
 }
 
@@ -10,7 +10,7 @@ class JMSService {
 	constructor() {}
 	
 	doProcessing() {
-		console.log('Processing task by invoking JMS Service');
+		console.log('Processing task by invoking JMS service');
 	}
 }
 
@@ -19,7 +19,7 @@ class BusinessLookUp {
 	
 	getBusinessService(serviceType) {
 		if(serviceType == 'EJB') {
-			return new EBJService();
+			return new EJBService();
 		} else {
 			return new JMSService();
 		}
@@ -29,7 +29,6 @@ class BusinessLookUp {
 class BusinessDelegate {
 	constructor() {
 		this.businessLookUp = new BusinessLookUp();
-		this.businessService;
 		this.serviceType;
 	}
 	
@@ -45,7 +44,7 @@ class BusinessDelegate {
 
 class Client {
 	constructor(businessDelegate) {
-		this.businessDelegate = businessDelegate;	
+		this.businessDelegate = businessDelegate;
 	}
 	
 	doTask() {
